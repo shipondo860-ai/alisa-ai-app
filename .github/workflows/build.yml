@@ -37,15 +37,15 @@ jobs:
           if [ -d "android" ]; then
             cd android
             chmod +x gradlew
-            ./gradlew assembleRelease
+            ./gradlew assembleDebug
             ./gradlew bundleRelease
           fi
 
-      - name: Upload APK
+      - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: release-apk
-          path: android/app/build/outputs/apk/release/*.apk
+          name: debug-apk
+          path: android/app/build/outputs/apk/debug/*.apk
 
       - name: Upload AAB
         uses: actions/upload-artifact@v4
